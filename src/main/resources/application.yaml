@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    addresses: 'localhost:5672'
+    username: 'guest'
+    password: 'guest'
+  cloud:
+    stream:
+      default-binder: rabbit
+      bindings:
+        sendDemo-out-0:
+          destination: demo_topic
+        receiveDemo-in-0:
+          destination: demo_topic
+    function:
+      definition: sendDemo;receiveDemo
